@@ -1,0 +1,23 @@
+<options xmlns="http://marklogic.com/appservices/search">
+    <additional-query>
+        <cts:collection-query xmlns:cts="http://marklogic.com/cts">
+            <cts:uri>kml</cts:uri>
+        </cts:collection-query>
+    </additional-query>
+    <constraint name="name">
+        <word>
+            <element ns="http://earth.google.com/kml/2.2" name="name" />
+        </word>
+    </constraint>
+    <constraint name="geo">
+        <geo-elem>
+            <element ns="http://earth.google.com/kml/2.2" name="coordinates"/>
+        </geo-elem>
+    </constraint>
+    <values name="name">
+        <range type="xs:string">
+            <element ns="http://earth.google.com/kml/2.2" name="name" />
+        </range>
+    </values>
+    <transform-results apply="raw" />
+</options>

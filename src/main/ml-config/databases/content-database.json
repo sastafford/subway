@@ -3,6 +3,16 @@
   "maintain-last-modified": true,
   "uri-lexicon": true,
   "collection-lexicon": true,
+  "geospatial-element-index": [
+    {
+      "coordinate-system": "wgs84",
+      "invalid-values": "reject",
+      "localname": "coordinates",
+      "namespace-uri": "http://earth.google.com/kml/2.2",
+      "point-format": "point",
+      "range-value-positions": false
+    }
+  ],
   "range-element-index": [
     {
       "invalid-values": "reject",
