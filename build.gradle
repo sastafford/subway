@@ -1,0 +1,46 @@
+plugins {
+  id "com.marklogic.ml-gradle" version "2.6.0"
+
+  // The following plugins are optional
+
+  // The Java plugin is used to compile and run JUnit tests
+  id "java"
+
+  // These plugins are used to generate IDE files
+  id "eclipse"
+  id "idea"
+}
+
+group 'com.marklogic'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+    // Needed for mlcp dependencies
+	maven { url "https://developer.marklogic.com/maven2/" }
+}
+
+configurations {
+    mlcp
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    mlcp "com.marklogic:mlcp:8.0-5"
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task importSubwayData(type: com.marklogic.gradle.task.MlcpTask) {
+    classpath = configurations.mlcp
+    command = "IMPORT"
+    database = mlAppConfig.contentDatabaseName
+    input_file_path = "data/Subway-Stations.kml"
+    input_file_type = "documents"
+    document_type = "xml"
+    output_collections = "raw"
+    output_uri_replace = ".*data,'/data'"
+}
