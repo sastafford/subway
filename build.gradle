@@ -23,14 +23,17 @@ repositories {
 }
 
 configurations {
-    mlcp
+    mlcp {
+        resolutionStrategy {
+            force "xml-apis:xml-apis:1.4.01"
+        }
+    }
 }
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
-    mlcp "com.marklogic:mlcp:8.0-5"
+    mlcp "com.marklogic:mlcp:8.0.6.4"
 
-    testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
