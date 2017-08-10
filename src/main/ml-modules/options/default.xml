@@ -12,6 +12,7 @@
     <constraint name="geo">
         <geo-elem>
             <element ns="http://earth.google.com/kml/2.2" name="coordinates"/>
+            <geo-option>type=long-lat-point</geo-option>
         </geo-elem>
     </constraint>
     <values name="name">

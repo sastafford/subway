@@ -9,7 +9,7 @@
       "invalid-values": "reject",
       "localname": "coordinates",
       "namespace-uri": "http://earth.google.com/kml/2.2",
-      "point-format": "point",
+      "point-format": "long-lat-point",
       "range-value-positions": false
     }
   ],
