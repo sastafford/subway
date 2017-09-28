@@ -15,6 +15,11 @@
             <geo-option>type=long-lat-point</geo-option>
         </geo-elem>
     </constraint>
+    <constraint name="when">
+        <range>
+            <element ns="http://earth.google.com/kml/2.2" name="when" />
+        </range>
+    </constraint>
     <values name="name">
         <range type="xs:string">
             <element ns="http://earth.google.com/kml/2.2" name="name" />
