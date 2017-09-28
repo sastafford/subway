@@ -16,11 +16,19 @@
   "range-element-index": [
     {
       "invalid-values": "reject",
-      "collation": "",
       "localname": "name",
       "namespace-uri": "http://earth.google.com/kml/2.2",
       "range-value-positions": false,
       "scalar-type": "string",
+      "collation": "http://marklogic.com/collation/"
+    },
+    {
+      "invalid-values": "reject",
+      "collation": "",
+      "localname": "when",
+      "namespace-uri": "http://earth.google.com/kml/2.2",
+      "range-value-positions": false,
+      "scalar-type": "date",
       "collation": "http://marklogic.com/collation/"
     }
   ],

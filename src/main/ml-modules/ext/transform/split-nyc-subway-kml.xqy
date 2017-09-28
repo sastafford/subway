@@ -1,5 +1,16 @@
 xquery version "1.0-ml";
 declare namespace kml = "http://earth.google.com/kml/2.2";
+declare namespace gx="http://www.google.com/kml/ext/2.2";
+
+declare function local:date() as xs:string {
+  let $month := ("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
+  let $day := "01"
+  let $seed :=
+    let $x := xdmp:random(12)
+    return if ($x = 0) then 1 else $x
+  let $date := fn:concat("2017-", $month[$seed], "-", $day)
+  return $date
+};
 
 let $uri := "/data/Subway-Stations.kml"
 let $doc := fn:doc($uri)
@@ -22,6 +33,9 @@ let $pm-doc :=
       element kml:Placemark {
         element kml:styleUrl { "#defaultStyle" },
         element kml:name { $placemark/name/text() },
+        element kml:TimeStamp {
+          element kml:when { local:date() }
+        },
         element kml:ExtendedData {
           for $data in $placemark/ExtendedData/Data
           let $name := fn:string($data/@name)
@@ -36,7 +50,6 @@ let $pm-doc :=
         }
       }
     }
-
   }
 return
   xdmp:document-insert(
